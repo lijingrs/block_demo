@@ -16,8 +16,8 @@ impl Logger {
             .rotation(Rotation::DAILY)
             .filename_prefix("server")
             .filename_suffix("log")
-            .build("/app/logs/demo/")
-            .expect("无法初始化滚动文件追加器");
+            .build("./logs/")
+            .expect("failed to create log appender");
         let (non_blocking_file, worker_guard) =
             tracing_appender_localtime::non_blocking(file_appender);
 
@@ -29,7 +29,6 @@ impl Logger {
             .with_level(true)
             .with_timer(LocalTimer);
 
-        //配置控制台日志
         let console_layer = fmt::layer()
             .with_writer(io::stdout)
             .with_ansi(false)

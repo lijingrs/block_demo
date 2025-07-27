@@ -1,0 +1,23 @@
+[package]
+name = "block_demo"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio = { version = "1.47", features = ["full","tracing"] }
+axum = { version = "0.8" ,features = ["multipart","macros"]}
+serde = { version = "1.0",features = ["derive"] }
+reqwest = { version = "0.12",features = ["rustls-tls"] }
+rayon = { version = "1.10.0" }
+tracing = "0.1.41"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "registry"] }
+tracing-appender-localtime = "0.2"
+chrono = "0.4"
+anyhow = "1.0.98"
+tower-http = { version = "0", features = ["trace", "cors", "fs", "timeout"] }
+nanoid = "0.4.0"
+once_cell = "1.21.3"
+resvg = { version = "0.45.1"}
+base64 = "0.22"
+headless_chrome = "1.0.17"
+moka = { version = "0.12.10",features = ["future"] }
